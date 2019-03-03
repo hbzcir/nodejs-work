@@ -32,7 +32,7 @@ app.get('/topic/', function(req, res) {
     var tit = req.body.title;
     conn.query(sql, function(err, topics, fields) {
         res.render('list', { topics: topics })
-    });
+    })
 });
 
 //write - 새글쓰기.화면렌더
