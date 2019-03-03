@@ -1,0 +1,45 @@
+doctype
+html(lang='ko-KR')
+  head
+    meta(charset='utf-8')
+    title
+    style(type='text/css') 
+        | html {12px}
+        | body, h1, h2 {font-size:1.2rem; color:#333; line-height:1.2; font-family:dotum; font-weight:normal}
+        | h1 {font-size:1.8rem}
+        | h2 {margin:0; padding:0}
+        | p {margin:0; padding:0}
+        | ul,li {list-style:normal; margin:0; padding:0; font-size:1rem}
+        | .view-title {widht:100%; overflow:hidden; font-size:1rem}
+        | .view-title span{margin-left:20px; display:inline-block; float:right;}
+        | .view-con {min-height:200px; background:#efefef; border:1px solid #ddd; margin:10px 0; padding:10px 20px; border-right:0; border-left:0;}
+        | .rp-wrap ul {margin-top:10px; border-bottom:2px solid #efefef}
+        | .rp-wrap li {margin-bottom:10px; padding:10px; border-top:1px solid #efefef}
+        | .rp-wrap .name:after {content:' |'; display:inline-block; padding-right:5px; padding-left:5px; color:#efefef}
+        | .rp-wrap p {margin-top:10px}
+        | button { font-size:30px; margin-bottom:10px}
+        
+  body
+    div.wrap
+    each topic in topics[0]
+        form(action='/topic/add/'+topic.id method='get')
+            h1 게시판상세
+                article
+                    h2.view-title= '제목 : '+topic.title
+                        span= '작성자 : '+topic.author
+                    p.view-con= topic.description
+            div.btn-area
+                button(type='submit') 답글쓰기
+                a(href='/topic/') 목록보기
+        h2 댓글            
+            div.rp-wrap
+                ul
+                    each comment_table in topics[1]
+                        li
+                            //- span.num= comment_table.boardCode 
+                            span.name= comment_table.userName
+                            span.date= comment_table.commentDate
+                            p.text= comment_table.commentText
+
+                                
+

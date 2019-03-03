@@ -1,0 +1,35 @@
+doctype
+html(lang="ko-KR")
+  head
+    meta(charset="utf-8")
+    title= tit
+    style(type='text/css') 
+        | table { width:100%; padding:10px; border-collapse:collapse}
+        | table th { text-align:center !important;}
+        | table th,table td { padding:5px; border: 1px solid #333}
+  body
+    h1 NodeJS DB TEST
+    ul
+      -for(var i=0; i<5; i++)
+        li coding
+    div.board-list
+        table
+            colgrouop
+                col(width="50px")
+                col
+                col
+                col
+            thead
+                tr
+                    th No
+                    th Name
+                    th Title
+                    th Date
+            tbody
+                tr
+                    td
+                    td
+                    td
+                    td        
+
+    div= time

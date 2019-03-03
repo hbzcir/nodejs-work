@@ -1,0 +1,48 @@
+doctype
+html(lang='ko-KR')
+  head
+    meta(charset='utf-8')
+    title= tit
+    style(type='text/css') 
+        | input {border:1px solid #000}
+        | textarea {border:1px solid #000}
+        | fieldset {display:flex; width:40%; border:0; padding:0; margin:0}
+        | fieldset label {flex:1 100%; margin-bottom:10px;}
+        | fieldset label input, fieldset label textarea {box-sizing:border-box; width:100%; margin:0; padding:10px; font-size:30px}
+        | button { font-size:30px}
+        | table { width:100%; padding:10px; border-collapse:collapse}
+        | table th { text-align:center !important}
+        | table th,table td { padding:5px; border: 1px solid #333}
+        | .btn-wrap { text-align:center; margin-top:10px}
+  body
+    div.wrap
+        form(action='/topic/add' method='get')
+            h1 게시판목록
+            article
+                p
+            div.board-list
+                table
+                    colgrouop
+                        col(width='50px')
+                        col
+                        col
+                        col
+                    thead
+                        tr
+                            th No
+                            th Name
+                            th Title
+                            th Date
+                    tbody
+                        each topic in topics
+                            tr
+                                td= topic.id
+                                td= topic.author
+                                td 
+                                    a(href='/topic/'+ topic.id)= topic.title
+                                td= topic.date
+            div.btn-wrap                                      
+                button(type="submit").btn-write 글쓰기
+
+    
+
