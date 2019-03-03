@@ -166,7 +166,7 @@ app.post('/topic', function(req, res){
     });
 });
 */
-
+// 실행 터미널  node app.js, visit http://localhost:3000,
 app.listen(3000, function() {
     console.log('connected 3000 port')
 })
